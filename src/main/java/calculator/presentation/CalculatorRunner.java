@@ -1,4 +1,4 @@
-package calculator.presentaion;
+package calculator.presentation;
 
 import calculator.model.SumCalculator;
 

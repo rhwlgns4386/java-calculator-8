@@ -1,8 +1,7 @@
-package calculator.model.expresion;
+package calculator.model.expression;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import calculator.model.expression.Separator;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;

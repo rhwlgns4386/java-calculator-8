@@ -1,7 +1,7 @@
 package calculator;
 
 import calculator.model.expression.ExpressionSumCalculatorFactory;
-import calculator.presentaion.CalculatorRunner;
+import calculator.presentation.CalculatorRunner;
 
 public class Application {
     public static void main(String[] args) {

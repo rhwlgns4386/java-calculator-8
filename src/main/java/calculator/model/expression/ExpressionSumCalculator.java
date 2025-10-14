@@ -1,7 +1,7 @@
 package calculator.model.expression;
 
-import calculator.model.positive.NonNegative;
 import calculator.model.SumCalculator;
+import calculator.model.positive.NonNegative;
 import calculator.model.positive.NonNegativeUtils;
 import java.util.List;
 

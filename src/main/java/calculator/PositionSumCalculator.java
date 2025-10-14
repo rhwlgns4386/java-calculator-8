@@ -6,7 +6,7 @@ public class PositionSumCalculator implements SumCalculator<List<Position>,Posit
 
     @Override
     public Position sum(List<Position> input) {
-        Position result = Position.ZERO;
+        Position result = Position.zero();
         for (Position position : input) {
             result = result.sum(position);
         }

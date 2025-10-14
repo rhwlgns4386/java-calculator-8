@@ -1,11 +1,13 @@
 package calculator;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Position {
 
-    public static final Position ZERO = of(BigInteger.ZERO);
+    private static final PositionCache cache = new PositionCache(30);
 
     private final BigInteger value;
 
@@ -23,7 +25,13 @@ public class Position {
     }
 
     public static Position of(BigInteger value) {
-        return new Position(value);
+        Optional<Position> findPosition = cache.get(value);
+        if(findPosition.isPresent()) {
+            return findPosition.get();
+        }
+        Position position = new Position(value);
+        cache.put(value, position);
+        return position;
     }
 
     public static Position of(Long value) {
@@ -36,6 +44,10 @@ public class Position {
         }catch (NumberFormatException e) {
             throw new IllegalArgumentException("is not a number");
         }
+    }
+
+    public static Position zero() {
+        return of(BigInteger.ZERO);
     }
 
     private static void valid(BigInteger value) {

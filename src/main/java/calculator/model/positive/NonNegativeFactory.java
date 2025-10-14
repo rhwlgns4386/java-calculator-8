@@ -14,12 +14,12 @@ public class NonNegativeFactory {
     }
 
     public static NonNegative from(BigInteger value) {
-        if(value.equals(BigInteger.ZERO)) {
+        if (value.equals(BigInteger.ZERO)) {
             return ZERO;
         }
-        Optional<NonNegative> findNonNegative = cache.get(value);
-        if (findNonNegative.isPresent()) {
-            return findNonNegative.get();
+        Optional<NonNegative> cachedValue = cache.get(value);
+        if (cachedValue.isPresent()) {
+            return cachedValue.get();
         }
         NonNegative nonNegative = new NonNegative(value);
         cache.put(value, nonNegative);

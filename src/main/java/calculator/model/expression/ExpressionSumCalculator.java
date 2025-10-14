@@ -19,7 +19,7 @@ public class ExpressionSumCalculator implements SumCalculator<String, String> {
     @Override
     public String sum(String expression) {
         List<String> numbers = analyze(expression);
-        List<NonNegative> nonNegatives = NonNegativeUtils.toPositives(numbers);
+        List<NonNegative> nonNegatives = NonNegativeUtils.toNonNegatives(numbers);
         return delegate.sum(nonNegatives).stringValue();
     }
 

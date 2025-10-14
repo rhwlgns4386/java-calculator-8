@@ -24,13 +24,13 @@ public class NonNegativeTest {
     }
 
     @Test
-    void Positive_덧셈() {
+    void NonNegative_덧셈() {
         NonNegative result = NonNegativeFactory.from("1").sum(NonNegativeFactory.from("2"));
         assertThat(result).isEqualTo(NonNegativeFactory.from("3"));
     }
 
     @Test
-    void Positive_동등성() {
+    void NonNegative_동등성() {
         assertThat(NonNegativeFactory.from("10"))
                 .isEqualTo(NonNegativeFactory.from("10"));
     }

@@ -11,7 +11,7 @@ class NonNegativeUtilsTest {
     void 문자열_리스트를_Positive_리스트로_변환() {
         List<String> input = List.of("1", "100", "12");
 
-        List<NonNegative> nonNegatives = NonNegativeUtils.toPositives(input);
+        List<NonNegative> nonNegatives = NonNegativeUtils.toNonNegatives(input);
 
         assertThat(nonNegatives).extracting(NonNegative::stringValue).containsExactly("1", "100", "12");
     }

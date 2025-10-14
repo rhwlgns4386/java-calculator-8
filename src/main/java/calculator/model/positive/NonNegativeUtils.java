@@ -7,7 +7,7 @@ public class NonNegativeUtils {
     private NonNegativeUtils() {
     }
 
-    public static List<NonNegative> toPositives(List<String> numbers) {
+    public static List<NonNegative> toNonNegatives(List<String> numbers) {
         return numbers.stream().map(NonNegativeFactory::from).toList();
     }
 }

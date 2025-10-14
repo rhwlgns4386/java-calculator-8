@@ -6,10 +6,10 @@ public class PositionSumCalculator implements SumCalculator<List<Position>,Posit
 
     @Override
     public Position sum(List<Position> input) {
-        Long sum = 0L;
+        Position result = Position.ZERO;
         for (Position position : input) {
-            sum += position.toLong();
+            result = result.sum(position);
         }
-        return Position.of(sum);
+        return result;
     }
 }

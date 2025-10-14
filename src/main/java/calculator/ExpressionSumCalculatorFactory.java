@@ -10,12 +10,12 @@ public class ExpressionSumCalculatorFactory {
     }
 
     public static ExpressionSumCalculator createCalculator() {
-        InputParser parser = createParser();
+        CustomSeparatorInputParser parser = createParser();
         SumCalculator<List<Position>, Position> delegate = createDelegate();
         return new ExpressionSumCalculator(parser, delegate);
     }
 
-    private static InputParser createParser() {
+    private static CustomSeparatorInputParser createParser() {
         return new CustomSeparatorInputParser(DEFAULT_SEPARATOR_PATTERN);
     }
 

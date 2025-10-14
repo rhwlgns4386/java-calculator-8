@@ -3,7 +3,7 @@ package calculator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomSeparatorInputParser implements InputParser {
+public class CustomSeparatorInputParser {
 
     private final Pattern pattern;
 
@@ -11,7 +11,7 @@ public class CustomSeparatorInputParser implements InputParser {
         this.pattern = Pattern.compile(pattern);
     }
 
-    @Override
+
     public Separator extractSeparator(String input) {
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
@@ -20,7 +20,6 @@ public class CustomSeparatorInputParser implements InputParser {
         return SeparatorFactory.defaultSeparator();
     }
 
-    @Override
     public String extractContent(String input) {
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {

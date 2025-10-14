@@ -1,17 +1,14 @@
 package calculator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, Long> {
 
     private final InputParser parser;
-    private final SeparatorFactory separatorFactory;
     private final SumCalculator<List<Position>,Position> delegate;
 
-    public ExpressionSumCalculator(InputParser parser, SeparatorFactory separatorFactory, SumCalculator<List<Position>,Position> delegate) {
+    public ExpressionSumCalculator(InputParser parser, SumCalculator<List<Position>,Position> delegate) {
         this.parser = parser;
-        this.separatorFactory = separatorFactory;
         this.delegate = delegate;
     }
 
@@ -23,7 +20,7 @@ public class ExpressionSumCalculator implements SumCalculator<String, Long> {
     }
 
     private List<String> analyze(String expression) {
-        Separator separator = separatorFactory.extract(parser.extractSeparator(expression));
+        Separator separator = parser.extractSeparator(expression);
         String content = parser.extractContent(expression);
         return separator.separate(content);
     }

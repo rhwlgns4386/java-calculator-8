@@ -5,20 +5,24 @@ import java.util.regex.Pattern;
 
 public class CustomSeparatorInputParser implements InputParser {
 
-    private static final Pattern PATTERN = Pattern.compile("^//(.*)\\\\n");
+    private final Pattern pattern;
+
+    public CustomSeparatorInputParser(String pattern) {
+        this.pattern = Pattern.compile(pattern);
+    }
 
     @Override
-    public String extractSeparator(String input) {
-        Matcher matcher = PATTERN.matcher(input);
+    public Separator extractSeparator(String input) {
+        Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
-            return matcher.group(0);
+            return SeparatorFactory.customSeparator(matcher.group(1));
         }
-        return "";
+        return SeparatorFactory.defaultSeparator();
     }
 
     @Override
     public String extractContent(String input) {
-        Matcher matcher = PATTERN.matcher(input);
+        Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
             return input.substring(matcher.end());
         }

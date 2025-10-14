@@ -9,12 +9,14 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class CustomSeparatorInputParserTest {
 
+    private static final String PATTEN = "^//(.*)\\\\n";
+
     @ParameterizedTest
     @MethodSource("provideSeparatorCases")
-    void 구분자_패턴_추출(String input, String expected) {
-        CustomSeparatorInputParser parser = new CustomSeparatorInputParser();
+    void 구분자_패턴_추출(String input, Separator expected) {
+        CustomSeparatorInputParser parser = new CustomSeparatorInputParser(PATTEN);
 
-        String result = parser.extractSeparator(input);
+        Separator result = parser.extractSeparator(input);
 
         assertThat(result).isEqualTo(expected);
     }
@@ -22,7 +24,7 @@ public class CustomSeparatorInputParserTest {
     @ParameterizedTest
     @MethodSource("provideContentCases")
     void 본문_내용_추출(String input, String expected) {
-        CustomSeparatorInputParser parser = new CustomSeparatorInputParser();
+        CustomSeparatorInputParser parser = new CustomSeparatorInputParser(PATTEN);
 
         String result = parser.extractContent(input);
 
@@ -31,10 +33,10 @@ public class CustomSeparatorInputParserTest {
 
     private static Stream<Arguments> provideSeparatorCases() {
         return Stream.of(
-                Arguments.of("//-\\n1;2;3", "//-\\n"),
-                Arguments.of("//;\\n1;2;3", "//;\\n"),
-                Arguments.of("1,2,3", ""),
-                Arguments.of("", "")
+                Arguments.of("//-\\n1;2;3", SeparatorFactory.customSeparator("-")),
+                Arguments.of("//;\\n1;2;3",  SeparatorFactory.customSeparator(";")),
+                Arguments.of("1,2,3", SeparatorFactory.defaultSeparator()),
+                Arguments.of("", SeparatorFactory.defaultSeparator())
         );
     }
 

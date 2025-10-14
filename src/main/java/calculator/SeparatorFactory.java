@@ -1,24 +1,19 @@
 package calculator;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SeparatorFactory {
 
-    private static final Pattern CUSTOM_SEPARATOR_PATTERN = Pattern.compile("^//(.*)\\\\n");
-
     private static final String[] DEFAULT_SEPARATORS = {",", ":"};
 
-    public Separator extract(String input) {
-        return new Separator(getSeparators(input));
+    private SeparatorFactory() {
     }
 
-    private String[] getSeparators(String input) {
-        Matcher matcher = CUSTOM_SEPARATOR_PATTERN.matcher(input);
-        if (matcher.find()) {
-            return new String[]{matcher.group(1)};
-        }
-        return Arrays.copyOf(DEFAULT_SEPARATORS, DEFAULT_SEPARATORS.length);
+    public static Separator customSeparator(String separator) {
+        return new Separator(separator);
+    }
+
+    public static Separator defaultSeparator() {
+        return new Separator(Arrays.copyOf(DEFAULT_SEPARATORS, DEFAULT_SEPARATORS.length));
     }
 }

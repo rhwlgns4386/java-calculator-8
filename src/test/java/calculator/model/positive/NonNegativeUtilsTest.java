@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class NonNegativeUtilsTest {
 
     @Test
-    void 문자열_리스트를_Positive_리스트로_변환() {
+    void 문자열_리스트를_NonNegative_리스트로_변환() {
         List<String> input = List.of("1", "100", "12");
 
         List<NonNegative> nonNegatives = NonNegativeUtils.toNonNegatives(input);

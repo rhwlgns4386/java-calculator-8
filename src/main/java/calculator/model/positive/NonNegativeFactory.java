@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class NonNegativeFactory {
 
-    public static final NonNegative ZERO = new NonNegative(BigInteger.ZERO);
+    private static final NonNegative ZERO = new NonNegative(BigInteger.ZERO);
 
     private static final NonNegativeCache cache = new NonNegativeCache(30);
 
@@ -31,5 +31,9 @@ public class NonNegativeFactory {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("is not a number");
         }
+    }
+
+    public static NonNegative zero() {
+        return ZERO;
     }
 }

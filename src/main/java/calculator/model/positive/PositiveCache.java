@@ -1,4 +1,4 @@
-package calculator;
+package calculator.model.positive;
 
 import java.math.BigInteger;
 import java.util.LinkedHashMap;

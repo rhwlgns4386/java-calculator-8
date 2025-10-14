@@ -1,4 +1,4 @@
-package calculator;
+package calculator.model.positive;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;

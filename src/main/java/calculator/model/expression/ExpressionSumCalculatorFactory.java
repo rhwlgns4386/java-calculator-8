@@ -1,5 +1,8 @@
-package calculator;
+package calculator.model.expression;
 
+import calculator.model.positive.Positive;
+import calculator.model.positive.PositiveSumCalculator;
+import calculator.model.SumCalculator;
 import java.util.List;
 
 public class ExpressionSumCalculatorFactory {

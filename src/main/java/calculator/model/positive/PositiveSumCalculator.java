@@ -1,5 +1,6 @@
-package calculator;
+package calculator.model.positive;
 
+import calculator.model.SumCalculator;
 import java.util.List;
 
 public class PositiveSumCalculator implements SumCalculator<List<Positive>, Positive> {

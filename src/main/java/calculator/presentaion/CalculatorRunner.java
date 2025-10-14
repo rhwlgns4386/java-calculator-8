@@ -1,4 +1,6 @@
-package calculator;
+package calculator.presentaion;
+
+import calculator.model.SumCalculator;
 
 public class CalculatorRunner {
 

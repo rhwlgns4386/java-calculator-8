@@ -1,4 +1,4 @@
-package calculator;
+package calculator.model.expression;
 
 import java.util.Arrays;
 

@@ -2,7 +2,7 @@ package calculator;
 
 import java.util.List;
 
-public class PositionCalculator implements SumCalculator<List<Position>,Position>{
+public class PositionSumCalculator implements SumCalculator<List<Position>,Position>{
 
     @Override
     public Position sum(List<Position> input) {

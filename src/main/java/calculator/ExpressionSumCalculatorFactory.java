@@ -20,6 +20,6 @@ public class ExpressionSumCalculatorFactory {
     }
 
     private static SumCalculator<List<Position>, Position> createDelegate() {
-        return new PositionCalculator();
+        return new PositionSumCalculator();
     }
 }

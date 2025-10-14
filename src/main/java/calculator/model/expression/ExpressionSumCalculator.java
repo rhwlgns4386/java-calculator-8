@@ -1,17 +1,17 @@
 package calculator.model.expression;
 
-import calculator.model.positive.Positive;
+import calculator.model.positive.NonNegative;
 import calculator.model.SumCalculator;
-import calculator.model.positive.PositiveUtils;
+import calculator.model.positive.NonNegativeUtils;
 import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, String> {
 
     private final CustomSeparatorInputParser parser;
-    private final SumCalculator<List<Positive>, Positive> delegate;
+    private final SumCalculator<List<NonNegative>, NonNegative> delegate;
 
     public ExpressionSumCalculator(CustomSeparatorInputParser parser,
-                                   SumCalculator<List<Positive>, Positive> delegate) {
+                                   SumCalculator<List<NonNegative>, NonNegative> delegate) {
         this.parser = parser;
         this.delegate = delegate;
     }
@@ -19,8 +19,8 @@ public class ExpressionSumCalculator implements SumCalculator<String, String> {
     @Override
     public String sum(String expression) {
         List<String> numbers = analyze(expression);
-        List<Positive> positives = PositiveUtils.toPositives(numbers);
-        return delegate.sum(positives).stringValue();
+        List<NonNegative> nonNegatives = NonNegativeUtils.toPositives(numbers);
+        return delegate.sum(nonNegatives).stringValue();
     }
 
     private List<String> analyze(String expression) {

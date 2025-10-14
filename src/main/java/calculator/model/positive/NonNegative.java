@@ -3,17 +3,17 @@ package calculator.model.positive;
 import java.math.BigInteger;
 import java.util.Objects;
 
-public class Positive {
+public class NonNegative {
 
     private final BigInteger value;
 
-    Positive(BigInteger value) {
+    NonNegative(BigInteger value) {
         valid(value);
         this.value = value;
     }
 
-    public Positive sum(Positive positive) {
-        return PositiveFactory.from(value.add(positive.value));
+    public NonNegative sum(NonNegative nonNegative) {
+        return NonNegativeFactory.from(value.add(nonNegative.value));
     }
 
     public String stringValue() {
@@ -31,8 +31,8 @@ public class Positive {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Positive positive = (Positive) o;
-        return Objects.equals(value, positive.value);
+        NonNegative nonNegative = (NonNegative) o;
+        return Objects.equals(value, nonNegative.value);
     }
 
     @Override

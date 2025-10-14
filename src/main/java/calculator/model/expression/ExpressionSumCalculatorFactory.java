@@ -1,7 +1,7 @@
 package calculator.model.expression;
 
-import calculator.model.positive.Positive;
-import calculator.model.positive.PositiveSumCalculator;
+import calculator.model.positive.NonNegative;
+import calculator.model.positive.NonNegativeSumCalculator;
 import calculator.model.SumCalculator;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class ExpressionSumCalculatorFactory {
 
     public static ExpressionSumCalculator createCalculator() {
         CustomSeparatorInputParser parser = createParser();
-        SumCalculator<List<Positive>, Positive> delegate = createDelegate();
+        SumCalculator<List<NonNegative>, NonNegative> delegate = createDelegate();
         return new ExpressionSumCalculator(parser, delegate);
     }
 
@@ -22,7 +22,7 @@ public class ExpressionSumCalculatorFactory {
         return new CustomSeparatorInputParser(DEFAULT_SEPARATOR_PATTERN);
     }
 
-    private static SumCalculator<List<Positive>, Positive> createDelegate() {
-        return new PositiveSumCalculator();
+    private static SumCalculator<List<NonNegative>, NonNegative> createDelegate() {
+        return new NonNegativeSumCalculator();
     }
 }

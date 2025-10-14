@@ -8,7 +8,7 @@ public class NonNegative {
     private final BigInteger value;
 
     NonNegative(BigInteger value) {
-        valid(value);
+        validate(value);
         this.value = value;
     }
 
@@ -20,7 +20,7 @@ public class NonNegative {
         return value.toString();
     }
 
-    private static void valid(BigInteger value) {
+    private static void validate(BigInteger value) {
         if (value.compareTo(BigInteger.ZERO) < 0) {
             throw new IllegalArgumentException("Negative value");
         }

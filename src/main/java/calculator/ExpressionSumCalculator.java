@@ -5,9 +5,10 @@ import java.util.List;
 public class ExpressionSumCalculator implements SumCalculator<String, Long> {
 
     private final CustomSeparatorInputParser parser;
-    private final SumCalculator<List<Position>,Position> delegate;
+    private final SumCalculator<List<Position>, Position> delegate;
 
-    public ExpressionSumCalculator(CustomSeparatorInputParser parser, SumCalculator<List<Position>,Position> delegate) {
+    public ExpressionSumCalculator(CustomSeparatorInputParser parser,
+                                   SumCalculator<List<Position>, Position> delegate) {
         this.parser = parser;
         this.delegate = delegate;
     }

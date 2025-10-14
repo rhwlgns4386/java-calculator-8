@@ -34,7 +34,7 @@ public class CustomSeparatorInputParserTest {
     private static Stream<Arguments> provideSeparatorCases() {
         return Stream.of(
                 Arguments.of("//-\\n1;2;3", SeparatorFactory.customSeparator("-")),
-                Arguments.of("//;\\n1;2;3",  SeparatorFactory.customSeparator(";")),
+                Arguments.of("//;\\n1;2;3", SeparatorFactory.customSeparator(";")),
                 Arguments.of("1,2,3", SeparatorFactory.defaultSeparator()),
                 Arguments.of("", SeparatorFactory.defaultSeparator())
         );

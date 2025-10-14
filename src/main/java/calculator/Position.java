@@ -1,6 +1,5 @@
 package calculator;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,7 +15,7 @@ public class Position {
         this.value = value;
     }
 
-    public Position sum(Position position){
+    public Position sum(Position position) {
         return of(value.add(position.value));
     }
 
@@ -26,7 +25,7 @@ public class Position {
 
     public static Position of(BigInteger value) {
         Optional<Position> findPosition = cache.get(value);
-        if(findPosition.isPresent()) {
+        if (findPosition.isPresent()) {
             return findPosition.get();
         }
         Position position = new Position(value);
@@ -41,7 +40,7 @@ public class Position {
     public static Position of(String value) {
         try {
             return of(new BigInteger(value));
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("is not a number");
         }
     }
@@ -51,7 +50,7 @@ public class Position {
     }
 
     private static void valid(BigInteger value) {
-        if(value.compareTo(BigInteger.ZERO) < 0) {
+        if (value.compareTo(BigInteger.ZERO) < 0) {
             throw new IllegalArgumentException("Negative value");
         }
     }

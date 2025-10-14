@@ -11,7 +11,6 @@ public class CustomSeparatorInputParser {
         this.pattern = Pattern.compile(pattern);
     }
 
-
     public Separator extractSeparator(String input) {
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {

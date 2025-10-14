@@ -2,7 +2,7 @@ package calculator.model.expression;
 
 import calculator.model.positive.Positive;
 import calculator.model.SumCalculator;
-import calculator.model.positive.PositiveFactory;
+import calculator.model.positive.PositiveUtils;
 import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, String> {
@@ -19,7 +19,7 @@ public class ExpressionSumCalculator implements SumCalculator<String, String> {
     @Override
     public String sum(String expression) {
         List<String> numbers = analyze(expression);
-        List<Positive> positives = toPositives(numbers);
+        List<Positive> positives = PositiveUtils.toPositives(numbers);
         return delegate.sum(positives).stringValue();
     }
 
@@ -27,9 +27,5 @@ public class ExpressionSumCalculator implements SumCalculator<String, String> {
         Separator separator = parser.extractSeparator(expression);
         String content = parser.extractContent(expression);
         return separator.separate(content);
-    }
-
-    private List<Positive> toPositives(List<String> numbers) {
-        return numbers.stream().map(PositiveFactory::from).toList();
     }
 }

@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class SeparatorFactory {
 
-    private static final Pattern CUSTOM_SEPARATOR_PATTERN = Pattern.compile("//(.*)\\n");
+    private static final Pattern CUSTOM_SEPARATOR_PATTERN = Pattern.compile("^//(.*)\\\\n");
 
     private static final String[] DEFAULT_SEPARATORS = {",", ":"};
 

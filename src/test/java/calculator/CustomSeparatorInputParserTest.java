@@ -31,8 +31,8 @@ public class CustomSeparatorInputParserTest {
 
     private static Stream<Arguments> provideSeparatorCases() {
         return Stream.of(
-                Arguments.of("//-\n1;2;3", "//-\n"),
-                Arguments.of("//;\n1;2;3", "//;\n"),
+                Arguments.of("//-\\n1;2;3", "//-\\n"),
+                Arguments.of("//;\\n1;2;3", "//;\\n"),
                 Arguments.of("1,2,3", ""),
                 Arguments.of("", "")
         );
@@ -40,8 +40,8 @@ public class CustomSeparatorInputParserTest {
 
     private static Stream<Arguments> provideContentCases() {
         return Stream.of(
-                Arguments.of("//-\n1;2;3", "1;2;3"),
-                Arguments.of("//;\n1;2;3", "1;2;3"),
+                Arguments.of("//-\\n1;2;3", "1;2;3"),
+                Arguments.of("//;\\n1;2;3", "1;2;3"),
                 Arguments.of("1,2,3", "1,2,3"),
                 Arguments.of("", "")
         );

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class CustomSeparatorInputParser implements InputParser {
 
-    private static final Pattern PATTERN = Pattern.compile("^//(.*)\\n");
+    private static final Pattern PATTERN = Pattern.compile("^//(.*)\\\\n");
 
     @Override
     public String extractSeparator(String input) {

@@ -6,6 +6,8 @@ import java.util.Optional;
 
 public class Position {
 
+    public static final Position ZERO = new Position(BigInteger.ZERO);
+
     private static final PositionCache cache = new PositionCache(30);
 
     private final BigInteger value;
@@ -24,6 +26,9 @@ public class Position {
     }
 
     public static Position of(BigInteger value) {
+        if(value.equals(BigInteger.ZERO)) {
+            return ZERO;
+        }
         Optional<Position> findPosition = cache.get(value);
         if (findPosition.isPresent()) {
             return findPosition.get();
@@ -46,7 +51,7 @@ public class Position {
     }
 
     public static Position zero() {
-        return of(BigInteger.ZERO);
+        return ZERO;
     }
 
     private static void valid(BigInteger value) {

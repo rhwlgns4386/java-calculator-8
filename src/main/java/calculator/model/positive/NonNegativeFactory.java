@@ -7,7 +7,8 @@ public class NonNegativeFactory {
 
     private static final NonNegative ZERO = new NonNegative(BigInteger.ZERO);
 
-    private static final NonNegativeCache cache = new NonNegativeCache(30);
+    private static final int CACHE_SIZE = 30;
+    private static final NonNegativeCache cache = new NonNegativeCache(CACHE_SIZE);
 
     private NonNegativeFactory() {
     }

@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, Long> {
@@ -15,6 +16,7 @@ public class ExpressionSumCalculator implements SumCalculator<String, Long> {
     @Override
     public Long sum(String expression) {
         List<String> numbers = analyze(expression);
+        List<Position> positions = toPositions(numbers);
         return 0L;
     }
 
@@ -22,5 +24,9 @@ public class ExpressionSumCalculator implements SumCalculator<String, Long> {
         Separator separator = separatorFactory.extract(parser.extractSeparator(expression));
         String content = parser.extractContent(expression);
         return separator.separate(content);
+    }
+
+    private List<Position> toPositions(List<String> numbers) {
+        return numbers.stream().map(Position::of).toList();
     }
 }

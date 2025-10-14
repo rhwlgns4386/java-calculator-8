@@ -4,45 +4,45 @@ import java.math.BigInteger;
 import java.util.Objects;
 import java.util.Optional;
 
-public class Position {
+public class Positive {
 
-    public static final Position ZERO = new Position(BigInteger.ZERO);
+    public static final Positive ZERO = new Positive(BigInteger.ZERO);
 
-    private static final PositionCache cache = new PositionCache(30);
+    private static final PositiveCache cache = new PositiveCache(30);
 
     private final BigInteger value;
 
-    private Position(BigInteger value) {
+    private Positive(BigInteger value) {
         valid(value);
         this.value = value;
     }
 
-    public Position sum(Position position) {
-        return of(value.add(position.value));
+    public Positive sum(Positive positive) {
+        return of(value.add(positive.value));
     }
 
     public String stringValue() {
         return value.toString();
     }
 
-    public static Position of(BigInteger value) {
+    public static Positive of(BigInteger value) {
         if(value.equals(BigInteger.ZERO)) {
             return ZERO;
         }
-        Optional<Position> findPosition = cache.get(value);
+        Optional<Positive> findPosition = cache.get(value);
         if (findPosition.isPresent()) {
             return findPosition.get();
         }
-        Position position = new Position(value);
-        cache.put(value, position);
-        return position;
+        Positive positive = new Positive(value);
+        cache.put(value, positive);
+        return positive;
     }
 
-    public static Position of(Long value) {
+    public static Positive of(Long value) {
         return of(BigInteger.valueOf(value));
     }
 
-    public static Position of(String value) {
+    public static Positive of(String value) {
         try {
             return of(new BigInteger(value));
         } catch (NumberFormatException e) {
@@ -50,7 +50,7 @@ public class Position {
         }
     }
 
-    public static Position zero() {
+    public static Positive zero() {
         return ZERO;
     }
 
@@ -65,8 +65,8 @@ public class Position {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Position position = (Position) o;
-        return Objects.equals(value, position.value);
+        Positive positive = (Positive) o;
+        return Objects.equals(value, positive.value);
     }
 
     @Override

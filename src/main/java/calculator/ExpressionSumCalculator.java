@@ -2,7 +2,7 @@ package calculator;
 
 import java.util.List;
 
-public class ExpressionSumCalculator implements SumCalculator<String, Long> {
+public class ExpressionSumCalculator implements SumCalculator<String, String> {
 
     private final CustomSeparatorInputParser parser;
     private final SumCalculator<List<Position>, Position> delegate;
@@ -14,10 +14,10 @@ public class ExpressionSumCalculator implements SumCalculator<String, Long> {
     }
 
     @Override
-    public Long sum(String expression) {
+    public String sum(String expression) {
         List<String> numbers = analyze(expression);
         List<Position> positions = toPositions(numbers);
-        return delegate.sum(positions).toLong();
+        return delegate.sum(positions).stringValue();
     }
 
     private List<String> analyze(String expression) {

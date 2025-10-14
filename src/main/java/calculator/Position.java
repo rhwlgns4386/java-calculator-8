@@ -19,8 +19,8 @@ public class Position {
         return of(value.add(position.value));
     }
 
-    public Long toLong() {
-        return value.longValue();
+    public String stringValue() {
+        return value.toString();
     }
 
     public static Position of(BigInteger value) {

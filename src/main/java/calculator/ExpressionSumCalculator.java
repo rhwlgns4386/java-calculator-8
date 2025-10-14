@@ -5,19 +5,21 @@ import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, Long> {
 
-    private final CustomSeparatorInputParser parser;
+    private final InputParser parser;
     private final SeparatorFactory separatorFactory;
+    private final SumCalculator<List<Position>,Position> delegate;
 
-    public ExpressionSumCalculator(CustomSeparatorInputParser parser, SeparatorFactory separatorFactory) {
+    public ExpressionSumCalculator(InputParser parser, SeparatorFactory separatorFactory, SumCalculator<List<Position>,Position> delegate) {
         this.parser = parser;
         this.separatorFactory = separatorFactory;
+        this.delegate = delegate;
     }
 
     @Override
     public Long sum(String expression) {
         List<String> numbers = analyze(expression);
         List<Position> positions = toPositions(numbers);
-        return 0L;
+        return delegate.sum(positions).toLong();
     }
 
     private List<String> analyze(String expression) {

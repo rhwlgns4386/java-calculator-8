@@ -2,6 +2,7 @@ package calculator.model.expression;
 
 import calculator.model.positive.Positive;
 import calculator.model.SumCalculator;
+import calculator.model.positive.PositiveFactory;
 import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, String> {
@@ -29,6 +30,6 @@ public class ExpressionSumCalculator implements SumCalculator<String, String> {
     }
 
     private List<Positive> toPositives(List<String> numbers) {
-        return numbers.stream().map(Positive::of).toList();
+        return numbers.stream().map(PositiveFactory::from).toList();
     }
 }

@@ -9,16 +9,16 @@ public class PositiveTest {
 
     @Test
     void 음수_입력시_예외_발생() {
-        assertThatIllegalArgumentException().isThrownBy(() -> Positive.of(-1L));
+        assertThatIllegalArgumentException().isThrownBy(() -> PositiveFactory.from("-1"));
     }
 
     @Test
     void 숫자가_아닌_값_입력시_예외_발생() {
-        assertThatIllegalArgumentException().isThrownBy(() -> Positive.of("a"));
+        assertThatIllegalArgumentException().isThrownBy(() -> PositiveFactory.from("a"));
     }
 
     @Test
     void 영_이상_입력시_정상_생성() {
-        assertThatCode(() -> Positive.of(0L)).doesNotThrowAnyException();
+        assertThatCode(() -> PositiveFactory.from("0")).doesNotThrowAnyException();
     }
 }

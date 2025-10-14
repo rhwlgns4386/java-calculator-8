@@ -7,7 +7,7 @@ public class PositiveSumCalculator implements SumCalculator<List<Positive>, Posi
 
     @Override
     public Positive sum(List<Positive> input) {
-        Positive result = Positive.zero();
+        Positive result = PositiveFactory.ZERO;
         for (Positive positive : input) {
             result = result.sum(positive);
         }

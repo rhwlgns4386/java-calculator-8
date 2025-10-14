@@ -10,10 +10,10 @@ public class PositiveSumCalculatorTest {
     @Test
     void Position_리스트_합계_계산() {
         PositiveSumCalculator positiveSumCalculator = new PositiveSumCalculator();
-        List<Positive> positives = List.of(Positive.of(1L), Positive.of(2L));
+        List<Positive> positives = List.of(PositiveFactory.from("1"), PositiveFactory.from("2"));
 
         Positive result = positiveSumCalculator.sum(positives);
 
-        assertThat(result).isEqualTo(Positive.of(3L));
+        assertThat(result).isEqualTo(PositiveFactory.from("3"));
     }
 }

@@ -16,4 +16,11 @@ public class NonNegativeSumCalculatorTest {
 
         assertThat(result).isEqualTo(NonNegativeFactory.from("3"));
     }
+
+    // 빈 리스트 - 테스트 없음!
+    @Test
+    void 빈_리스트_합계() {
+        NonNegative result = new NonNegativeSumCalculator().sum(List.of());
+        assertThat(result).isEqualTo(NonNegativeFactory.zero());
+    }
 }

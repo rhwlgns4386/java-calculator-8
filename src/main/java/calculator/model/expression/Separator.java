@@ -10,7 +10,7 @@ public class Separator {
 
     private final Set<String> separators;
 
-    public Separator(String... separators) {
+    Separator(String... separators) {
         this.separators = Set.of(separators);
     }
 

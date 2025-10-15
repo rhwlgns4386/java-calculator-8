@@ -2,6 +2,7 @@ package calculator.model.expression;
 
 import calculator.model.SumCalculator;
 import calculator.model.positive.NonNegative;
+import calculator.model.positive.NonNegativeFactory;
 import calculator.model.positive.NonNegativeUtils;
 import java.util.List;
 
@@ -18,6 +19,9 @@ public class ExpressionSumCalculator implements SumCalculator<String, String> {
 
     @Override
     public String sum(String expression) {
+        if(expression.isBlank()){
+            return NonNegativeFactory.zero().stringValue();
+        }
         List<String> numbers = analyze(expression);
         List<NonNegative> nonNegatives = NonNegativeUtils.toNonNegatives(numbers);
         return delegate.sum(nonNegatives).stringValue();

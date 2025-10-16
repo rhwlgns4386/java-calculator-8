@@ -7,19 +7,19 @@ import java.util.List;
 
 public class ExpressionSumCalculatorFactory {
 
-    private static final String DEFAULT_SEPARATOR_PATTERN = "^//(.*)\\\\n";
+    private static final String DEFAULT_EXPRESSION_PATTERN = "^//(?<separator>.*)\\\\n(?<context>.*)$";
 
     private ExpressionSumCalculatorFactory() {
     }
 
     public static ExpressionSumCalculator createCalculator() {
-        CustomSeparatorInputParser parser = createParser();
+        ExpressionParser analyzer = createAnalyzer();
         SumCalculator<List<NonNegative>, NonNegative> delegate = createDelegate();
-        return new ExpressionSumCalculator(parser, delegate);
+        return new ExpressionSumCalculator(analyzer, delegate);
     }
 
-    private static CustomSeparatorInputParser createParser() {
-        return new CustomSeparatorInputParser(DEFAULT_SEPARATOR_PATTERN);
+    private static ExpressionParser createAnalyzer() {
+        return new RegexExpressionParser(DEFAULT_EXPRESSION_PATTERN);
     }
 
     private static SumCalculator<List<NonNegative>, NonNegative> createDelegate() {

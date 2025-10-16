@@ -1,4 +1,4 @@
-package calculator.model.positive;
+package calculator.model.nonnegative;
 
 import java.math.BigInteger;
 import java.util.Optional;

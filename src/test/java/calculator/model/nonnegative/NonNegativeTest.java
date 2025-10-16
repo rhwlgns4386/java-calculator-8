@@ -1,4 +1,4 @@
-package calculator.model.positive;
+package calculator.model.nonnegative;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;

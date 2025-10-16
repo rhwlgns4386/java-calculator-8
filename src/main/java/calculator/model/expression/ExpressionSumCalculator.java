@@ -1,9 +1,9 @@
 package calculator.model.expression;
 
 import calculator.model.SumCalculator;
-import calculator.model.positive.NonNegative;
-import calculator.model.positive.NonNegativeFactory;
-import calculator.model.positive.NonNegativeUtils;
+import calculator.model.nonnegative.NonNegative;
+import calculator.model.nonnegative.NonNegativeFactory;
+import calculator.model.nonnegative.NonNegativeUtils;
 import java.util.List;
 
 public class ExpressionSumCalculator implements SumCalculator<String, String> {

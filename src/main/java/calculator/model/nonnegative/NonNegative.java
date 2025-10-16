@@ -1,4 +1,4 @@
-package calculator.model.positive;
+package calculator.model.nonnegative;
 
 import java.math.BigInteger;
 import java.util.Objects;
@@ -20,12 +20,6 @@ public class NonNegative {
         return value.toString();
     }
 
-    private static void validate(BigInteger value) {
-        if (value.compareTo(BigInteger.ZERO) < 0) {
-            throw new IllegalArgumentException("Negative value");
-        }
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) {
@@ -38,5 +32,11 @@ public class NonNegative {
     @Override
     public int hashCode() {
         return Objects.hashCode(value);
+    }
+
+    private static void validate(BigInteger value) {
+        if (value.compareTo(BigInteger.ZERO) < 0) {
+            throw new IllegalArgumentException("Negative value");
+        }
     }
 }

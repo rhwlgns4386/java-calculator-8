@@ -1,5 +1,7 @@
 package calculator.model.nonnegative;
 
+import calculator.utils.BigIntegerConverter;
+import java.math.BigInteger;
 import java.util.List;
 
 public class NonNegativeUtils {
@@ -8,6 +10,7 @@ public class NonNegativeUtils {
     }
 
     public static List<NonNegative> toNonNegatives(List<String> numbers) {
-        return numbers.stream().map(NonNegativeFactory::from).toList();
+        List<BigInteger> bigIntegers = BigIntegerConverter.toBigIntegers(numbers);
+        return bigIntegers.stream().map(NonNegative::from).toList();
     }
 }

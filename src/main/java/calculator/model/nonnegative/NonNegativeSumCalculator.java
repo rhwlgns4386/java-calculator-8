@@ -7,7 +7,7 @@ public class NonNegativeSumCalculator implements SumCalculator<List<NonNegative>
 
     @Override
     public NonNegative sum(List<NonNegative> input) {
-        NonNegative result = NonNegativeFactory.zero();
+        NonNegative result = NonNegative.zero();
         for (NonNegative nonNegative : input) {
             result = result.sum(nonNegative);
         }

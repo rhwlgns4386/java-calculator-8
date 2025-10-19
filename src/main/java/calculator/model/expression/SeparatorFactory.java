@@ -10,7 +10,9 @@ public class SeparatorFactory {
     }
 
     public static Separator customSeparator(String separator) {
-        return new Separator(separator);
+        String[] separators = Arrays.copyOf(DEFAULT_SEPARATORS, DEFAULT_SEPARATORS.length + 1);
+        separators[DEFAULT_SEPARATORS.length] = separator;
+        return new Separator(separators);
     }
 
     public static Separator defaultSeparator() {

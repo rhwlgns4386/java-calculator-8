@@ -1,8 +1,8 @@
 package calculator.model.expression;
 
+import calculator.model.SumCalculator;
 import calculator.model.nonnegative.NonNegative;
 import calculator.model.nonnegative.NonNegativeSumCalculator;
-import calculator.model.SumCalculator;
 import java.util.List;
 
 public class ExpressionSumCalculatorFactory {

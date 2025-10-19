@@ -11,7 +11,7 @@ public class NonNegativeSumCalculatorTest {
     @Test
     void NonNegative_리스트_합계_계산() {
         NonNegativeSumCalculator nonNegativeSumCalculator = new NonNegativeSumCalculator();
-        List<NonNegative> nonNegatives = NonNegativeUtils.toNonNegatives(List.of("1","2"));
+        List<NonNegative> nonNegatives = NonNegativeUtils.toNonNegatives(List.of("1", "2"));
 
         NonNegative result = nonNegativeSumCalculator.sum(nonNegatives);
 

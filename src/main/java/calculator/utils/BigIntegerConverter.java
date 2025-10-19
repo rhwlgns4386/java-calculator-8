@@ -15,7 +15,7 @@ public class BigIntegerConverter {
     public static BigInteger toBigInteger(String value) {
         try {
             return new BigInteger(value);
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("is not a number");
         }
     }

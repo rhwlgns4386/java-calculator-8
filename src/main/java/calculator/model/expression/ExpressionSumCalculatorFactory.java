@@ -13,12 +13,12 @@ public class ExpressionSumCalculatorFactory {
     }
 
     public static ExpressionSumCalculator createCalculator() {
-        ExpressionParser analyzer = createAnalyzer();
+        ExpressionParser expressionParser = createExpressionParser();
         SumCalculator<List<NonNegative>, NonNegative> delegate = createDelegate();
-        return new ExpressionSumCalculator(analyzer, delegate);
+        return new ExpressionSumCalculator(expressionParser, delegate);
     }
 
-    private static ExpressionParser createAnalyzer() {
+    private static ExpressionParser createExpressionParser() {
         return new RegexExpressionParser(DEFAULT_EXPRESSION_PATTERN);
     }
 
